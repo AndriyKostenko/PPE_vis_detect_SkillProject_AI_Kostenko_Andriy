@@ -90,3 +90,33 @@
 2025-12-13 13:48:45,211 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
 2025-12-13 13:48:45,212 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 100)
 2025-12-13 13:48:45,212 - PPE Vision Detection Logger - INFO - Starting model training...
+2025-12-13 14:02:50,290 - PPE Vision Detection Logger - INFO - Model training completed. Results saved to: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/runs/ppe_detection_model
+2025-12-13 14:02:50,290 - PPE Vision Detection Logger - INFO - Training completed. Results saved to: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/runs/ppe_detection_model
+2025-12-13 14:02:50,374 - PPE Vision Detection Logger - INFO - Best model weights found at: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/runs/ppe_detection_model/weights/best.pt
+2025-12-13 14:08:14,342 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 14:08:14,362 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 14:08:14,362 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 14:08:14,362 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 14:08:14,362 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 14:08:14,362 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 100)
+2025-12-13 14:08:14,362 - PPE Vision Detection Logger - ERROR - No trained model available for evaluation.
+2025-12-13 14:11:31,526 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 14:11:31,548 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 14:11:31,548 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 14:11:31,548 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 14:11:31,548 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 14:11:31,548 - PPE Vision Detection Logger - INFO - User override: 3 epochs (recommended was 100)
+2025-12-13 14:11:31,548 - PPE Vision Detection Logger - INFO - Starting model training...
+2025-12-13 14:20:16,754 - PPE Vision Detection Logger - INFO - Model training completed. Results saved to: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/runs/ppe_detection_model2
+2025-12-13 14:20:16,754 - PPE Vision Detection Logger - INFO - Training completed. Results saved to: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/runs/ppe_detection_model2
+2025-12-13 14:20:16,841 - PPE Vision Detection Logger - INFO - Best model weights found at: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/runs/ppe_detection_model2/weights/best.pt
+2025-12-13 14:20:16,856 - PPE Vision Detection Logger - INFO - Best model copied to: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/trained_models/best_ppe_model.pt
+2025-12-13 14:21:20,544 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 14:21:20,563 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 14:21:20,563 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 14:21:20,563 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 14:21:20,563 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 14:21:20,563 - PPE Vision Detection Logger - INFO - User override: 3 epochs (recommended was 100)
+2025-12-13 14:21:20,724 - PPE Vision Detection Logger - INFO - Loaded existing model from: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/trained_models/best_ppe_model.pt
+2025-12-13 14:21:20,724 - PPE Vision Detection Logger - INFO - Starting model evaluation...
+2025-12-13 14:21:53,663 - PPE Vision Detection Logger - INFO - Model evaluation completed.

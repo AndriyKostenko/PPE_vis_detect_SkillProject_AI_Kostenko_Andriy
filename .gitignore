@@ -41,9 +41,12 @@ env.bak/
 venv.bak/
 .env
 backend/venv
-frontend/node_modules
+frontend/node_modules/
 backend/.python-version
 backend/dataset
+backend/runs
+backend/trained_models
+
 
 # Testing
 .coverage

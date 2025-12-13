@@ -1,5 +1,6 @@
 from pathlib import Path
 from typing import Optional
+import shutil
 
 from ultralytics import YOLO
 import torch
@@ -184,6 +185,12 @@ class YOLOmodelTrainer:
         if best_weights.exists():
             self.last_trained_model = YOLO(best_weights)
             self.logger.info(f"Best model weights found at: {best_weights}")
+            
+            # Copy best model to trained_models_dir for easy access
+            final_model_path = self.trained_models_dir / "best_ppe_model.pt"
+            shutil.copy(best_weights, final_model_path)
+            self.best_model_path = final_model_path
+            self.logger.info(f"Best model copied to: {final_model_path}")
         else: 
             self.logger.warning("Best model weights not found after training.")
         return results
@@ -218,4 +225,14 @@ if __name__ == "__main__":
     model_trainer = YOLOmodelTrainer(logger=logger, settings=settings)
     #print(model_trainer)
 
-    model_trainer.train()
+    # model_trainer.train()
+    
+    # Load previously trained model
+    # best_model_path = model_trainer.trained_models_dir / "best_ppe_model.pt"
+    # if best_model_path.exists():
+    #     model_trainer.last_trained_model = YOLO(best_model_path)
+    #     model_trainer.best_model_path = best_model_path
+    #     logger.info(f"Loaded existing model from: {best_model_path}")
+    #     print(model_trainer.evaluate())
+    # else:
+    #     logger.error(f"No trained model found at {best_model_path}. Run training first.")
