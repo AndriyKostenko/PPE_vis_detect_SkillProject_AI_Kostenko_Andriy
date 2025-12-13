@@ -1,0 +1,61 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+
+# Executables
+*.exe
+*.winmd
+*.app
+*.whl
+
+# Source control
+.hg/
+.mypy_cache/
+.tox/
+.venv/
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+.env
+backend/venv
+frontend/node_modules
+backend/.python-version
+
+# Testing
+.coverage
+.coverage.*
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+
+# Editors
+.vscode/
+.idea/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
