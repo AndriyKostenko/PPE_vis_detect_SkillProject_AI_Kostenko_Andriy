@@ -27,3 +27,66 @@
 2025-12-13 12:03:30,785 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
 2025-12-13 12:03:31,043 - PPE Vision Detection Logger - INFO - Using device for training: cuda
 2025-12-13 12:03:31,043 - PPE Vision Detection Logger - INFO - Starting model training...
+2025-12-13 12:17:52,161 - PPE Vision Detection Logger - INFO - Model training completed.
+2025-12-13 13:09:08,388 - PPE Vision Detection Logger - INFO - Large dataset detected. Recommended epochs: 60.
+2025-12-13 13:09:08,388 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 60)
+2025-12-13 13:09:08,567 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:09:08,586 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:09:08,587 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:31:18,298 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:31:18,318 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:31:18,318 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:31:18,318 - PPE Vision Detection Logger - INFO - Large dataset detected. Recommended epochs: 60.
+2025-12-13 13:31:18,318 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 60)
+2025-12-13 13:32:28,921 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:32:28,941 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:32:28,941 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:32:28,941 - PPE Vision Detection Logger - INFO - Large dataset detected. Recommended epochs: 60.
+2025-12-13 13:32:28,941 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 60)
+2025-12-13 13:32:28,942 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:32:28,942 - PPE Vision Detection Logger - INFO - Large dataset detected. Recommended epochs: 60.
+2025-12-13 13:32:28,942 - PPE Vision Detection Logger - INFO - Final number of epochs set to: 60
+2025-12-13 13:32:28,942 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:34:43,229 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:34:43,246 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:34:43,246 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:34:43,246 - PPE Vision Detection Logger - INFO - Large dataset detected. Recommended epochs: 60.
+2025-12-13 13:34:43,246 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 60)
+2025-12-13 13:36:37,769 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:36:37,790 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:36:37,790 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:36:37,790 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 13:36:37,790 - PPE Vision Detection Logger - INFO - Large dataset detected. Recommended epochs: 60.
+2025-12-13 13:36:37,790 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 60)
+2025-12-13 13:37:41,949 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:37:41,971 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:37:41,971 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:37:41,971 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 13:37:41,971 - PPE Vision Detection Logger - INFO - Large dataset detected. Recommended epochs: 60.
+2025-12-13 13:37:41,971 - PPE Vision Detection Logger - INFO - User override: 80 epochs (recommended was 60)
+2025-12-13 13:44:18,681 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:44:18,702 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:44:18,702 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:44:18,702 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 13:44:18,702 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 13:44:18,702 - PPE Vision Detection Logger - INFO - User override: 10 epochs (recommended was 100)
+2025-12-13 13:44:43,870 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:44:43,890 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:44:43,890 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:44:43,890 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 13:44:43,890 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 13:44:43,890 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 100)
+2025-12-13 13:46:13,264 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:46:13,286 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:46:13,286 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:46:13,286 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 13:46:13,286 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 13:46:13,286 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 100)
+2025-12-13 13:46:13,286 - PPE Vision Detection Logger - INFO - Starting model training...
+2025-12-13 13:48:45,192 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 13:48:45,211 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 13:48:45,211 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 13:48:45,211 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 13:48:45,211 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 13:48:45,212 - PPE Vision Detection Logger - INFO - User override: 5 epochs (recommended was 100)
+2025-12-13 13:48:45,212 - PPE Vision Detection Logger - INFO - Starting model training...
