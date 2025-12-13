@@ -1,0 +1,29 @@
+2025-12-13 11:41:58,582 - PPE Vision Detection Logger - ERROR - Training dataset path is not specified in settings and/or must be provided !!!
+2025-12-13 11:44:00,626 - PPE Vision Detection Logger - INFO - Training dataset path: /dataset/data.yaml
+2025-12-13 11:44:00,626 - PPE Vision Detection Logger - ERROR - Training dataset path is not specified in settings and/or must be provided !!!
+2025-12-13 11:47:23,276 - PPE Vision Detection Logger - INFO - Training dataset YAML: /dataset/data.yaml
+2025-12-13 11:47:23,276 - PPE Vision Detection Logger - INFO - Training dataset folder: /dataset
+2025-12-13 11:47:23,276 - PPE Vision Detection Logger - ERROR - Dataset YAML not found: /dataset/data.yaml
+2025-12-13 11:49:21,257 - PPE Vision Detection Logger - INFO - Training dataset YAML: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset/data.yaml
+2025-12-13 11:49:21,257 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
+2025-12-13 11:50:00,306 - PPE Vision Detection Logger - INFO - Training dataset YAML: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset/data.yaml
+2025-12-13 11:50:00,307 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
+2025-12-13 11:50:41,816 - PPE Vision Detection Logger - INFO - Training dataset YAML: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset/data.yaml
+2025-12-13 11:50:41,816 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
+2025-12-13 11:50:59,852 - PPE Vision Detection Logger - INFO - Training dataset YAML: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset/data.yaml
+2025-12-13 11:50:59,852 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
+2025-12-13 11:59:02,679 - PPE Vision Detection Logger - INFO - Training dataset YAML: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset/data.yaml
+2025-12-13 11:59:02,679 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
+2025-12-13 11:59:03,004 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 12:00:05,544 - PPE Vision Detection Logger - INFO - Training dataset YAML: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset/data.yaml
+2025-12-13 12:00:05,545 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
+2025-12-13 12:00:05,856 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 12:00:05,856 - PPE Vision Detection Logger - INFO - Starting model training...
+2025-12-13 12:01:13,652 - PPE Vision Detection Logger - INFO - Training dataset YAML: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset/data.yaml
+2025-12-13 12:01:13,652 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
+2025-12-13 12:01:13,925 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 12:01:13,925 - PPE Vision Detection Logger - INFO - Starting model training...
+2025-12-13 12:03:30,785 - PPE Vision Detection Logger - INFO - Training dataset YAML: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset/data.yaml
+2025-12-13 12:03:30,785 - PPE Vision Detection Logger - INFO - Training dataset folder: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/dataset
+2025-12-13 12:03:31,043 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 12:03:31,043 - PPE Vision Detection Logger - INFO - Starting model training...

@@ -43,6 +43,7 @@ venv.bak/
 backend/venv
 frontend/node_modules
 backend/.python-version
+backend/dataset
 
 # Testing
 .coverage

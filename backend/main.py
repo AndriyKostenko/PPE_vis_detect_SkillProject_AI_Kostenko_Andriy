@@ -1,6 +1,11 @@
-def main():
-    print("Hello from backend!")
+import uvicorn 
+from fastapi import FastAPI
+from settings import settings
+
+
+app = FastAPI(title="PPE Vision Detection App",
+              version="0.0.1")
 
 
 if __name__ == "__main__":
-    main()
+    uvicorn.run(app, host=settings.APP_HOST, port=settings.APP_PORT)
