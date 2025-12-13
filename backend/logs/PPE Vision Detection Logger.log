@@ -120,3 +120,31 @@
 2025-12-13 14:21:20,724 - PPE Vision Detection Logger - INFO - Loaded existing model from: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/trained_models/best_ppe_model.pt
 2025-12-13 14:21:20,724 - PPE Vision Detection Logger - INFO - Starting model evaluation...
 2025-12-13 14:21:53,663 - PPE Vision Detection Logger - INFO - Model evaluation completed.
+2025-12-13 14:37:43,273 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 14:37:43,293 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 14:37:43,293 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 14:37:43,293 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 14:37:43,293 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 14:37:43,293 - PPE Vision Detection Logger - INFO - User override: 3 epochs (recommended was 100)
+2025-12-13 15:58:05,689 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 15:58:05,710 - PPE Vision Detection Logger - INFO - Detected VRAM: 12 GB
+2025-12-13 15:58:05,710 - PPE Vision Detection Logger - INFO - Recommended max safe batch size based on VRAM: 16
+2025-12-13 15:58:05,710 - PPE Vision Detection Logger - INFO - Using user-requested batch size: 16
+2025-12-13 15:58:05,710 - PPE Vision Detection Logger - INFO - Small/Custom dataset (5269 images). Recommended epochs: 100.
+2025-12-13 15:58:05,710 - PPE Vision Detection Logger - INFO - User override: 3 epochs (recommended was 100)
+2025-12-13 16:05:43,792 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 16:05:43,793 - PPE Vision Detection Logger - INFO - Running inference on image: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/test_images/test_img_1.jpg
+2025-12-13 16:05:44,607 - PPE Vision Detection Logger - INFO - Inference completed.
+2025-12-13 16:13:20,882 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 16:13:20,883 - PPE Vision Detection Logger - INFO - Running inference on image: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/test_images/test_img_1.jpg
+2025-12-13 16:13:21,703 - PPE Vision Detection Logger - INFO - Inference completed.
+2025-12-13 16:15:13,517 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 16:15:13,517 - PPE Vision Detection Logger - INFO - Running inference on image: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/test_images/test_img_1.jpg
+2025-12-13 16:15:14,305 - PPE Vision Detection Logger - INFO - Inference completed.
+2025-12-13 16:15:14,308 - PPE Vision Detection Logger - INFO - Annotated image saved to /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/inference_results/test_img_1_annotated.jpg
+2025-12-13 16:15:43,402 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 16:15:43,403 - PPE Vision Detection Logger - INFO - Running inference on image: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/test_images/test_img_2.jpg
+2025-12-13 16:16:00,064 - PPE Vision Detection Logger - INFO - Using device for training: cuda
+2025-12-13 16:16:00,064 - PPE Vision Detection Logger - INFO - Running inference on image: /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/test_images/test_img_2.jpeg
+2025-12-13 16:16:00,884 - PPE Vision Detection Logger - INFO - Inference completed.
+2025-12-13 16:16:00,885 - PPE Vision Detection Logger - INFO - Annotated image saved to /home/andriy/Documents/Projects/PPE_vis_detect_SkillProject_AI_Kostenko_Andriy/backend/inference_results/test_img_2_annotated.jpg

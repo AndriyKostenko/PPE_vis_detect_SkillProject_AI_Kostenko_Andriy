@@ -216,14 +216,14 @@ class YOLOmodelTrainer:
                 f"model_image_size: {self.model_image_size}, \n"
                 f"device_for_training: {self.device_for_training}, \n"
                 f"vram_gb: {self.vram_gb} GB \n"
-                f"classes: {self.last_trained_model.names if self.last_trained_model else 'N/A'}"
+                f"classes: {self.model.names} "
                )
     
     
     
 if __name__ == "__main__":
     model_trainer = YOLOmodelTrainer(logger=logger, settings=settings)
-    #print(model_trainer)
+    print(model_trainer)
 
     # model_trainer.train()
     

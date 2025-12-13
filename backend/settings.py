@@ -32,6 +32,8 @@ class Settings(BaseSettings):
     MODEL_IMG_SIZE: int = 640  # training image size (default 640)
     BATCH_SIZE: int = 4 # default smallest batch size
     NUMBER_OF_EPOCHS: int = 10  # let it be only 10 for testing purpose and saving the users GPU/CPU
+    CONFIDENCE_THRESHOLD: float = 0.25  # default confidence threshold for inference
+    IOU_THRESHOLD: float = 0.45  # default IoU threshold for NMS during inference
     
     @property
     def BASE_DIR(self) -> Path:

@@ -1,0 +1,70 @@
+from pathlib import Path
+from typing import Optional
+
+from ultralytics import YOLO
+import torch
+import cv2  
+
+from logger import logger, Logger
+from settings import Settings, settings
+
+
+class InferenceManager:
+    """
+    Manages the inference process using a pre-trained YOLO model.
+    """
+    def __init__(self, model_path: str, settings: Settings, logger: Logger):
+        self.model_path = Path(model_path)
+        if not self.model_path.exists():
+            logger.error(f"Model path {self.model_path} does not exist.")
+            raise FileNotFoundError(f"Model path {self.model_path} does not exist.")
+        
+        self.settings = settings
+        self.logger = logger
+        self.model = YOLO(self.model_path)
+        self.device = self._detect_device_for_training()
+        self.classes = self.model.names
+        self.confidence_threshold = self.settings.CONFIDENCE_THRESHOLD
+        self.iou_threshold = self.settings.IOU_THRESHOLD
+        
+        self.annotated_image_save_path = settings.BASE_DIR / "inference_results"
+        self.annotated_image_save_path.mkdir(parents=True, exist_ok=True)
+        
+    def _detect_device_for_training(self) -> str:
+        """Detect if CUDA is available for training."""
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.logger.info(f"Using device for training: {device}")
+        return device
+    
+    def predict(self, image_path: str):
+        """Run inference on the given image."""
+        self.logger.info(f"Running inference on image: {image_path}")
+        results = self.model.predict(source=image_path, device=self.device, conf=self.confidence_threshold, iou=self.iou_threshold)
+        self.logger.info("Inference completed.")
+        return results
+    
+    def annotate_image_and_save(self, image_path: str):
+        """Annotate the image with detection results and save it."""
+        results = self.predict(image_path)
+        annotated_image = results[0].plot()
+        
+        input_filename = Path(image_path).stem
+        output_filename = f"{input_filename}_annotated.jpg"
+        cv2.imwrite(str(self.annotated_image_save_path / output_filename), annotated_image)
+        self.logger.info(f"Annotated image saved to {self.annotated_image_save_path / output_filename}")
+        return annotated_image
+
+
+inference_manager = InferenceManager(model_path=str(settings.BASE_DIR / "trained_models" / "best_ppe_model.pt"), 
+                                     settings=settings, 
+                                     logger=logger)
+    
+    
+if __name__ == "__main__":
+    model_path = settings.BASE_DIR / "trained_models" / "best_ppe_model.pt"
+    test_image_path = settings.BASE_DIR / "test_images" / "test_img_2.jpeg"
+    
+    inference_manager = InferenceManager(model_path=str(model_path), settings=settings, logger=logger)
+    inference_manager.annotate_image_and_save(image_path=str(test_image_path))
+    
+        
