@@ -27,4 +27,5 @@ The flow of the project is simple: load an image -> wait for image object detect
    After you appear inside the container you can run: `pytest tests/`
 
 
+[Screencast from 2025-12-14 15-33-43.webm](https://github.com/user-attachments/assets/63d920b6-ad9a-4ae3-9856-e8311bf5fddd)
 
