@@ -37,6 +37,9 @@ async def detect_ppe(file: UploadFile = File(...)):
         unique_filename = f"{uuid4()}_{file.filename}"
         file_path = os.path.join(settings.IMAGE_UPLOAD_DIR, unique_filename)
         
+        # Ensure the upload directory exists
+        os.makedirs(settings.IMAGE_UPLOAD_DIR, exist_ok=True)
+        
         async with aiofiles.open(file_path, 'wb') as out_file:
             await out_file.write(content)
         
