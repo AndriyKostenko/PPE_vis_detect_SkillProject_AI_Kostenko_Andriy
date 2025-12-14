@@ -29,7 +29,7 @@ wheels/
 *.app
 *.whl
 
-# Source control
+# Source control Bckend
 .hg/
 .mypy_cache/
 .tox/
@@ -41,13 +41,22 @@ env.bak/
 venv.bak/
 .env
 backend/venv
-frontend/node_modules/
+
 backend/.python-version
 backend/dataset
 backend/runs
 backend/trained_models
 backend/uploads
 backend/inference_results
+backend/__pycache__
+backend/logs
+
+
+# Source control Frontend
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
 
 
 # Testing
