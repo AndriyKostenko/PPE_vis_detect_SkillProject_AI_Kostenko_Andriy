@@ -40,6 +40,7 @@ async def detect_ppe(file: UploadFile = File(...)):
             await out_file.write(content)
         
         annotated_image_path = inference_manager.annotate_image_and_save(image_path=file_path)
+        detections = inference_manager.get_detections(image_path=file_path)
         
         # Reading an annotated image and encoding it to base64
         async with aiofiles.open(annotated_image_path, 'rb') as annotated_file:
@@ -52,8 +53,7 @@ async def detect_ppe(file: UploadFile = File(...)):
         os.remove(annotated_image_path)
         
         return DetectionResponseSchema(
-            success=True,
-            message="PPE detection completed successfully.",
+            detections=detections,
             annotated_image=f"{encoded_image}"
         )
         

@@ -2,7 +2,7 @@ from datetime import datetime
 from typing import Optional, List, Literal
 from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, EmailStr, PositiveInt, field_validator
+from pydantic import BaseModel, ConfigDict, EmailStr, PositiveInt, field_validator, Base64Bytes, Base64Str
 from pydantic.fields import Field
 
 
@@ -32,10 +32,12 @@ class ImageUploadSchema(BaseModel):
     
     model_config = ConfigDict(from_attributes=True)
     
+class DetectionSchema(BaseModel):
+    class_: str = Field(..., alias="class", description="Detected class label")
+    confidence: float = Field(..., description="Confidence score of the detection")
+    bbox: list[float] = Field(..., description="Bounding box coordinates [x_min, y_min, x_max, y_max]")
+
 class DetectionResponseSchema(BaseModel):
-    success: bool = Field(..., description="Indicates if detection was successful")
-    message: str = Field(..., description="Detection result message")
-    annotated_image: str = Field(..., description="Base64 encoded annotated image")
-    
-    model_config = ConfigDict(from_attributes=True)
+    detections: list[DetectionSchema] = Field(..., description="List of detections")
+    annotated_image: str 
     

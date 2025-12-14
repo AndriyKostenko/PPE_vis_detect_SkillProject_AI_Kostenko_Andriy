@@ -54,6 +54,22 @@ class InferenceManager:
         cv2.imwrite(output_path, annotated_image)
         self.logger.info(f"Annotated image saved to: {output_path}")
         return output_path
+    
+    def get_detections(self, image_path: str):
+        """Get detection results in a structured format."""
+        results = self.predict(image_path)
+        detections = []
+        for result in results:
+            for box in result.boxes:
+                cls_id = int(box.cls[0])
+                confidence = float(box.conf[0])
+                bbox = box.xyxy[0].tolist()  # [x_min, y_min, x_max, y_max]
+                detections.append({
+                    "class": self.classes[cls_id],
+                    "confidence": confidence,
+                    "bbox": bbox
+                })
+        return detections
 
 
 inference_manager = InferenceManager(model_path=str(settings.BASE_DIR / "trained_models" / "best_ppe_model.pt"), 
@@ -63,9 +79,11 @@ inference_manager = InferenceManager(model_path=str(settings.BASE_DIR / "trained
     
 if __name__ == "__main__":
     model_path = settings.BASE_DIR / "trained_models" / "best_ppe_model.pt"
-    test_image_path = settings.BASE_DIR / "test_images" / "test_img_2.jpeg"
+    test_image_path = settings.BASE_DIR / "uploads" / "test_img_2.jpeg"
     
     inference_manager = InferenceManager(model_path=str(model_path), settings=settings, logger=logger)
-    inference_manager.annotate_image_and_save(image_path=str(test_image_path))
+    #inference_manager.annotate_image_and_save(image_path=str(test_image_path))
+    print(inference_manager.get_detections(image_path=str(test_image_path)))
+    print("Model classes: ", inference_manager.classes)
     
         
