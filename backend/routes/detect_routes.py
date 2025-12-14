@@ -18,8 +18,11 @@ detect_router = APIRouter()
                     response_model=DetectionResponseSchema,
                     summary="Detect Personal Protective Equipment (PPE) in an uploaded image",
                     description="This endpoint accepts an image file upload and performs PPE detection on the image. Supported image formats are JPEG, PNG, and WEBP with a maximum size of 5MB.")
-async def detect_ppe(file: UploadFile = File(...)): 
+async def detect_ppe(file: UploadFile = File(...)):
+    file_path = None
+    annotated_image_path = None
     try:
+        
         content = await file.read()
         
         #validating the image file
@@ -45,8 +48,8 @@ async def detect_ppe(file: UploadFile = File(...)):
         encoded_image = base64.b64encode(annotated_content).decode('utf-8')
         
         # Clean up the uploaded file after processing
-        # os.remove(file_path)
-        # os.remove(annotated_image_path)
+        os.remove(file_path)
+        os.remove(annotated_image_path)
         
         return DetectionResponseSchema(
             success=True,
@@ -59,6 +62,7 @@ async def detect_ppe(file: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"An unexpected error occurred while processing the file: {str(e)}")
     finally:
+        # Clean up files in case of exceptions
         if file_path and os.path.exists(file_path):
             os.remove(file_path)
         if annotated_image_path and os.path.exists(annotated_image_path):
