@@ -95,8 +95,8 @@ app.add_middleware(
 )
 
 # including all the routers to the app
-app.include_router(detect_router, prefix="/api/v1/ppe-vision-detection")
-app.include_router(report_router, prefix="/api/v1/pdf-report-generation")
+app.include_router(detect_router, prefix="/api/v1")
+app.include_router(report_router, prefix="/api/v1")
 
 
 
