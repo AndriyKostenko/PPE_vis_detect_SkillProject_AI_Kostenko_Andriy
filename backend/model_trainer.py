@@ -225,7 +225,7 @@ if __name__ == "__main__":
     model_trainer = YOLOmodelTrainer(logger=logger, settings=settings)
     print(model_trainer)
 
-    # model_trainer.train()
+    model_trainer.train()
     
     # Load previously trained model
     # best_model_path = model_trainer.trained_models_dir / "best_ppe_model.pt"

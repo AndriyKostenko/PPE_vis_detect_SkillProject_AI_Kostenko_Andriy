@@ -70,7 +70,7 @@ class InferenceManager:
                 detections.append({
                     "class": self.classes[cls_id],
                     "confidence": round(confidence, 2),
-                    "bbox": bbox
+                    "bbox": [round(coord) for coord in bbox]
                 })
                 
                 if self.classes[cls_id] == "head":

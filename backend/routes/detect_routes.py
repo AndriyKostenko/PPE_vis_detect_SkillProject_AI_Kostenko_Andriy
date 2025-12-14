@@ -14,11 +14,12 @@ detect_router = APIRouter()
 
 # TODO: create an ImageService class to handle image processing logic
 # TODO: create a custom exceptions for clearbetter error handling
+# TODO: Performance can be suff. icreased using mulytiprocessing or Background Tasks
 @detect_router.post("/detect",
                     status_code=status.HTTP_201_CREATED,
                     response_model=DetectionResponseSchema,
                     summary="Detect Personal Protective Equipment (PPE) in an uploaded image",
-                    description="This endpoint accepts an image file upload and performs PPE detection on the image. Supported image formats are JPEG, PNG, and WEBP with a maximum size of 5MB.")
+                    description="This endpoint accepts an image file upload and performs PPE detection on the image. Supported image formats are JPEG, PNG  with a maximum size of 2 MB.")
 async def detect_ppe(file: UploadFile = File(...)):
     file_path = None
     annotated_image_path = None

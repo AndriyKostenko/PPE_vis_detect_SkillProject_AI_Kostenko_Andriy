@@ -34,7 +34,7 @@ class ImageUploadSchema(BaseModel):
 class DetectionSchema(BaseModel):
     class_: str = Field(..., alias="class", description="Detected class label")
     confidence: float = Field(..., description="Confidence score of the detection")
-    bbox: list[float] = Field(..., description="Bounding box coordinates [x_min, y_min, x_max, y_max]")
+    bbox: list[int] = Field(..., description="Bounding box coordinates [x_min, y_min, x_max, y_max]")
 
 
 class DetectionSummarySchema(BaseModel):
@@ -42,8 +42,10 @@ class DetectionSummarySchema(BaseModel):
     no_helmet_count: int = Field(..., description="Number of persons without helmets detected")
     
     
+    
 class DetectionResponseSchema(BaseModel):
     image_id: str = Field(..., description="Unique identifier for the image")
+    timestamp: datetime = Field(default_factory=datetime.now, description="Timestamp of when the detection was made")
     detections: list[DetectionSchema] = Field(..., description="List of detections")
     summary: DetectionSummarySchema = Field(..., description="Summary of detections")
     annotated_image: str 

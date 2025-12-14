@@ -3,6 +3,7 @@ import io
 import base64
 import os
 from pathlib import Path
+from datetime import datetime
 
 import reportlab
 from reportlab.lib.pagesizes import letter
@@ -12,6 +13,7 @@ from reportlab.pdfbase.pdfmetrics import stringWidth
 
 from settings import Settings, settings
 from logger import Logger, logger
+from schemas.detect_schemas import DetectionResponseSchema
 
 
 class PDFReportGenerator:
@@ -42,17 +44,36 @@ class PDFReportGenerator:
             y -= line_height
         return y
         
-    def generate_report(self, detections: list, annotated_image_base64: str) -> Path:
-        try:
+    def generate_report(self, detections: list, annotated_image_base64: str, summary, image_id: str, timestamp: datetime) -> Path:
+        try:  
             filename = self._generate_unique_filename()
             output_path = self.output_path / filename
             width, height = letter
-
+            
+            total_detections = len(detections)
+            image_id = image_id
+            timestamp_formatted = datetime.strftime(timestamp, "%Y-%m-%d %H:%M:%S")
+            violations = summary.no_helmet_count
+            complaints = summary.helmet_count
+            
             c = canvas.Canvas(str(output_path), pagesize=letter)
             c.setFont("Helvetica", 12)
-            c.drawString(30, height - 30, "PPE Detection Report")
+            c.drawString(30, height - 30, "PPE Safety Incident Report")
 
+            # Add image ID and timestamp
             y_position = height - 60
+            c.drawString(30, y_position, f"Image ID: {image_id}")
+            y_position -= 20
+            c.drawString(30, y_position, f"Timestamp: {timestamp_formatted}")
+
+            # Add detection summary
+            y_position -= 20
+            c.drawString(30, y_position, f"Total Detections: {total_detections}")
+            y_position -= 20
+            c.drawString(30, y_position, f"Violations: {violations}")
+            y_position -= 20
+            c.drawString(30, y_position, f"Complaints: {complaints}")
+            y_position -= 30  # Space before detections list
             line_height = 20
             bottom_margin = 60
             left_margin = 30
