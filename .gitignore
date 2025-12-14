@@ -57,6 +57,7 @@ backend/pdf_reports
 frontend/node_modules/
 frontend/build/
 frontend/dist/
+frontend/.next/
 
 
 

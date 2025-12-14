@@ -64,7 +64,7 @@ class PDFReportGenerator:
             y_position = height - 60
             c.drawString(30, y_position, f"Image ID: {image_id}")
             y_position -= 20
-            c.drawString(30, y_position, f"Timestamp: {timestamp_formatted}")
+            c.drawString(30, y_position, f"Timestamp: {timestamp}")
 
             # Add detection summary
             y_position -= 20
@@ -106,7 +106,10 @@ class PDFReportGenerator:
 
             c.save()
             self.logger.info(f"PDF report generated at: {output_path}")
-            return output_path
+            
+            pdf_url = f"http://localhost:8000/pdf_reports/{filename}"
+            self.logger.info(f"PDF report accessible at: {pdf_url}")
+            return pdf_url
         except Exception as e:
             self.logger.error(f"Failed to generate PDF report: {e}")
             raise

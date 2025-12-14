@@ -6,6 +6,7 @@ from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 from fastapi.exceptions import ResponseValidationError, RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from settings import settings
 from routes.detect_routes import detect_router
@@ -97,6 +98,9 @@ app.add_middleware(
 # including all the routers to the app
 app.include_router(detect_router, prefix="/api/v1")
 app.include_router(report_router, prefix="/api/v1")
+
+# Static files serving for PDF reports
+app.mount("/pdf_reports", StaticFiles(directory="pdf_reports"), name="pdf_reports")
 
 
 
