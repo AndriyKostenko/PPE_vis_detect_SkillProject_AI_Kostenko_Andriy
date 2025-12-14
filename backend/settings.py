@@ -27,6 +27,7 @@ class Settings(BaseSettings):
     APP_PORT: int = 8000
     IMAGE_UPLOAD_DIR: str = "uploads"
     INFERENCE_RESULTS_DIR: str = "inference_results"
+    PDF_REPORTS_DIR: str = "pdf_reports"
     
     #YOLO Model settings
     MODEL_NAME_AND_SIZE: str = "yolo11n.pt"  # setting the minimum default model

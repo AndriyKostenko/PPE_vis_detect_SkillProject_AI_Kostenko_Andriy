@@ -50,6 +50,7 @@ backend/uploads
 backend/inference_results
 backend/__pycache__
 backend/logs
+backend/pdf_reports
 
 
 # Source control Frontend

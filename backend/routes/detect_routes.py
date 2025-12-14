@@ -1,8 +1,8 @@
-from datetime import datetime
+from uuid import uuid4
 import os
 import base64
 
-from fastapi import APIRouter, UploadFile, File, HTTPException
+from fastapi import APIRouter, UploadFile, File, HTTPException, status
 import aiofiles
 
 from schemas.detect_schemas import ImageUploadSchema, DetectionResponseSchema
@@ -13,8 +13,9 @@ detect_router = APIRouter()
 
 
 # TODO: create an ImageService class to handle image processing logic
+# TODO: create a custom exceptions for clearbetter error handling
 @detect_router.post("/detect",
-                    status_code=200,
+                    status_code=status.HTTP_201_CREATED,
                     response_model=DetectionResponseSchema,
                     summary="Detect Personal Protective Equipment (PPE) in an uploaded image",
                     description="This endpoint accepts an image file upload and performs PPE detection on the image. Supported image formats are JPEG, PNG, and WEBP with a maximum size of 5MB.")
@@ -32,8 +33,7 @@ async def detect_ppe(file: UploadFile = File(...)):
             size=len(content)
         )
         
-        unique_timestamp = datetime.utcnow().strftime("%Y%m%d%H%M%S%f")
-        unique_filename = f"{unique_timestamp}_{file.filename}"
+        unique_filename = f"{uuid4()}_{file.filename}"
         file_path = os.path.join(settings.IMAGE_UPLOAD_DIR, unique_filename)
         
         async with aiofiles.open(file_path, 'wb') as out_file:

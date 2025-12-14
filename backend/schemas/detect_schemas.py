@@ -1,8 +1,7 @@
 from datetime import datetime
 from typing import Optional, List, Literal
-from uuid import UUID
 
-from pydantic import BaseModel, ConfigDict, EmailStr, PositiveInt, field_validator, Base64Bytes, Base64Str
+from pydantic import BaseModel, ConfigDict, EmailStr, PositiveInt, field_validator
 from pydantic.fields import Field
 
 
