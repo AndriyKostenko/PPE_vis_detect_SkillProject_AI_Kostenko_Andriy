@@ -45,7 +45,6 @@ backend/venv
 backend/.python-version
 backend/dataset
 backend/runs
-backend/trained_models
 backend/uploads
 backend/inference_results
 backend/__pycache__
