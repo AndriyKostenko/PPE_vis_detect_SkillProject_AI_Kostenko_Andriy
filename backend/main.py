@@ -5,6 +5,7 @@ from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
 from fastapi.exceptions import ResponseValidationError, RequestValidationError
+from fastapi.middleware.cors import CORSMiddleware
 
 from settings import settings
 from routes.detect_routes import detect_router
@@ -84,13 +85,14 @@ add_exception_handlers(app)
 # CORS or "Cross-Origin Resource Sharing" is a mechanism that 
 # allows restricted resources on a web page to be requested from another domain 
 # outside the domain from which the first resource was served.
-# app.add_middleware(
-#     CORSMiddleware,
-#     allow_origins=settings.CORS_ALLOWED_ORIGINS,
-#     allow_credentials=settings.CORS_ALLOW_CREDENTIALS,
-#     allow_methods=settings.CORS_ALLOWED_METHODS,
-#     allow_headers=settings.CORS_ALLOWED_HEADERS,
-# )
+# Since we will be running only locally, we will allow all origins.
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=settings.CORS_ALLOWED_ORIGINS,
+    allow_credentials=settings.CORS_ALLOW_CREDENTIALS,
+    allow_methods=settings.CORS_ALLOWED_METHODS,
+    allow_headers=settings.CORS_ALLOWED_HEADERS,
+)
 
 # including all the routers to the app
 app.include_router(detect_router, prefix="/api/v1/ppe-vision-detection")

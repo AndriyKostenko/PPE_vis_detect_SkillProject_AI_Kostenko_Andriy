@@ -25,6 +25,12 @@ class Settings(BaseSettings):
     APP_VERSION: str = "0.0.1"
     APP_HOST: str = "localhost"
     APP_PORT: int = 8000
+    CORS_ALLOWED_ORIGINS: list[str] = ["http://localhost:3000"]
+    CORS_ALLOW_CREDENTIALS: bool = True
+    CORS_ALLOWED_METHODS: list[str] = ["POST", "GET", "OPTIONS"]
+    CORS_ALLOWED_HEADERS: list[str] = ["*"]
+    
+    # Directories for storing uploads and results
     IMAGE_UPLOAD_DIR: str = "uploads"
     INFERENCE_RESULTS_DIR: str = "inference_results"
     PDF_REPORTS_DIR: str = "pdf_reports"

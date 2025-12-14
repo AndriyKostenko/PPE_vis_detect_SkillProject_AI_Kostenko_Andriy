@@ -4,6 +4,7 @@ from pathlib import Path
 
 
 class Logger:
+    """A customizable logger class for logging messages to console and/or file."""
     def __init__(self, 
                  name: str, 
                  log_level: str = "INFO", 
