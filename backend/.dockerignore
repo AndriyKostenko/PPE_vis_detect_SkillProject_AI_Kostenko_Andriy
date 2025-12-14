@@ -4,7 +4,6 @@
 **/*.pyd
 .git
 .gitignore
-.env*
 .python-version
 .coverage
 htmlcov/

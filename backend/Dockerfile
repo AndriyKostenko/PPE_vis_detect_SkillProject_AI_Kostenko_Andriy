@@ -29,6 +29,7 @@ RUN apt-get update \
 # Copy dependency files only
 COPY pyproject.toml uv.lock ./
 
+
 # Install dependencies using uv sync instead of uv pip install
 RUN uv sync --frozen --no-dev
 

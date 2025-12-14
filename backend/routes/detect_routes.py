@@ -9,7 +9,7 @@ from schemas.detect_schemas import ImageUploadSchema, DetectionResponseSchema, D
 from inference import inference_manager
 from settings import settings
 
-detect_router = APIRouter()
+detect_router = APIRouter(tags=["PPE Detection endpoints"])
 
 
 # TODO: create an ImageService class to handle image processing logic

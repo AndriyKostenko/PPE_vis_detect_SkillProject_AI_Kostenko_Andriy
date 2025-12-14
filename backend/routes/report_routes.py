@@ -5,7 +5,7 @@ from pdf_report_generator import report_generator
 from schemas.report_shcemas import ReportResponseSchema
 
 
-report_router = APIRouter()
+report_router = APIRouter(tags=["PDF Report endpoints"])
 
 
 # TODO: Create a Service to generate PDF report using PDFReportGenerator
