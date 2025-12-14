@@ -36,7 +36,15 @@ class DetectionSchema(BaseModel):
     confidence: float = Field(..., description="Confidence score of the detection")
     bbox: list[float] = Field(..., description="Bounding box coordinates [x_min, y_min, x_max, y_max]")
 
+
+class DetectionSummarySchema(BaseModel):
+    helmet_count: int = Field(..., description="Number of helmets detected")
+    no_helmet_count: int = Field(..., description="Number of persons without helmets detected")
+    
+    
 class DetectionResponseSchema(BaseModel):
+    image_id: str = Field(..., description="Unique identifier for the image")
     detections: list[DetectionSchema] = Field(..., description="List of detections")
+    summary: DetectionSummarySchema = Field(..., description="Summary of detections")
     annotated_image: str 
     

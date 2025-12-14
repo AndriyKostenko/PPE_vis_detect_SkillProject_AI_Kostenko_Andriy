@@ -5,7 +5,7 @@ import base64
 from fastapi import APIRouter, UploadFile, File, HTTPException, status
 import aiofiles
 
-from schemas.detect_schemas import ImageUploadSchema, DetectionResponseSchema
+from schemas.detect_schemas import ImageUploadSchema, DetectionResponseSchema, DetectionSummarySchema
 from inference import inference_manager
 from settings import settings
 
@@ -40,7 +40,7 @@ async def detect_ppe(file: UploadFile = File(...)):
             await out_file.write(content)
         
         annotated_image_path = inference_manager.annotate_image_and_save(image_path=file_path)
-        detections = inference_manager.get_detections(image_path=file_path)
+        detections, violations, complaints = inference_manager.get_detections(image_path=file_path)
         
         # Reading an annotated image and encoding it to base64
         async with aiofiles.open(annotated_image_path, 'rb') as annotated_file:
@@ -53,7 +53,12 @@ async def detect_ppe(file: UploadFile = File(...)):
         os.remove(annotated_image_path)
         
         return DetectionResponseSchema(
+            image_id=unique_filename,
             detections=detections,
+            summary=DetectionSummarySchema(
+                helmet_count=complaints,
+                no_helmet_count=violations
+            ),
             annotated_image=f"{encoded_image}"
         )
         

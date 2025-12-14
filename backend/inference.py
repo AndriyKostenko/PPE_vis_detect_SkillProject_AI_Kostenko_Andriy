@@ -59,6 +59,9 @@ class InferenceManager:
         """Get detection results in a structured format."""
         results = self.predict(image_path)
         detections = []
+        violations = 0
+        complaints = 0
+        
         for result in results:
             for box in result.boxes:
                 cls_id = int(box.cls[0])
@@ -66,10 +69,15 @@ class InferenceManager:
                 bbox = box.xyxy[0].tolist()  # [x_min, y_min, x_max, y_max]
                 detections.append({
                     "class": self.classes[cls_id],
-                    "confidence": confidence,
+                    "confidence": round(confidence, 2),
                     "bbox": bbox
                 })
-        return detections
+                
+                if self.classes[cls_id] == "head":
+                    violations += 1
+                elif self.classes[cls_id] == "helmet":
+                    complaints += 1
+        return detections, violations, complaints
 
 
 inference_manager = InferenceManager(model_path=str(settings.BASE_DIR / "trained_models" / "best_ppe_model.pt"), 
