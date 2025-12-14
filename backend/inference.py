@@ -43,16 +43,17 @@ class InferenceManager:
         self.logger.info("Inference completed.")
         return results
     
-    def annotate_image_and_save(self, image_path: str):
+    def annotate_image_and_save(self, image_path: str) -> Path:
         """Annotate the image with detection results and save it."""
         results = self.predict(image_path)
         annotated_image = results[0].plot()
         
         input_filename = Path(image_path).stem
         output_filename = f"{input_filename}_annotated.jpg"
-        cv2.imwrite(str(self.annotated_image_save_path / output_filename), annotated_image)
-        self.logger.info(f"Annotated image saved to {self.annotated_image_save_path / output_filename}")
-        return annotated_image
+        output_path = str(self.annotated_image_save_path / output_filename)
+        cv2.imwrite(output_path, annotated_image)
+        self.logger.info(f"Annotated image saved to: {output_path}")
+        return output_path
 
 
 inference_manager = InferenceManager(model_path=str(settings.BASE_DIR / "trained_models" / "best_ppe_model.pt"), 

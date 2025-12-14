@@ -25,6 +25,8 @@ class Settings(BaseSettings):
     APP_VERSION: str = "0.0.1"
     APP_HOST: str = "localhost"
     APP_PORT: int = 8000
+    IMAGE_UPLOAD_DIR: str = "uploads"
+    INFERENCE_RESULTS_DIR: str = "inference_results"
     
     #YOLO Model settings
     MODEL_NAME_AND_SIZE: str = "yolo11n.pt"  # setting the minimum default model

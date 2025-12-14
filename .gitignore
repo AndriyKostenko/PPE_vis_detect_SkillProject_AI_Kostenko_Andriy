@@ -46,6 +46,8 @@ backend/.python-version
 backend/dataset
 backend/runs
 backend/trained_models
+backend/uploads
+backend/inference_results
 
 
 # Testing
