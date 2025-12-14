@@ -135,11 +135,8 @@ export default function Home() {
     return (
         <div className="flex h-screen bg-neutral-100">
         {/* Sidebar */}
-        <aside className="w-1/3 min-w-[260px] max-w-[400px] bg-neutral-900 shadow-xl flex flex-col p-8 justify-between">
+        <aside className="w-1/3 min-w-[260px] max-w-[400px] bg-neutral-900 shadow-xl flex flex-col p-8 justify-between overflow-y-auto min-h-0">
             <div>
-                {/* <div className="mb-8">
-                    <span className="text-2xl font-bold text-white tracking-tight">PPE Vision</span>
-                </div> */}
                 <div className="mb-8 flex flex-col gap-6">
                     <span className="text-2xl font-bold text-white tracking-tight mb-2 ">PPE Vision Detectio System</span>
                     <div className="mt-2 bg-neutral-800 rounded-lg p-4 text-white text-sm font-medium shadow flex flex-col items-center">
@@ -179,10 +176,11 @@ export default function Home() {
                     alt="Watch Dog Logo"
                     width={500}
                     height={500}
-                    className="w-full h-auto object-contain mb-2"
+                    className="w-full h-auto object-contain mb-2 max-w-[220px]"
                     priority
                 />
-                <span className="text-white text-center text-lg opacity-80">The Watch Dogs are watching you !!!</span>
+                <span className="text-white text-center text-lg opacity-80 break-words w-full">
+                    The Watch Dogs are watching you !!!</span>
             </div>
         </aside>
         {/* Main Content */}
