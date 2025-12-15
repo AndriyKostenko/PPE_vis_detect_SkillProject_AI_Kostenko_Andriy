@@ -25,6 +25,7 @@ The flow of the project is simple: load an image -> wait for image object detect
 4. After building, you will get access to frontend via: http://localhost:3000 and backend API endpoints via: http://0.0.0.0:8000/docs
 6. To run the tests you have to go inside the Docker "backend" container: `docker exec -it backend /bin/bash`
    After you appear inside the container you can run: `pytest tests/`
+7. To check the initial documentation you can run: `xdg-open docs/index.html` 
 
 
 [Screencast from 2025-12-14 15-33-43.webm](https://github.com/user-attachments/assets/63d920b6-ad9a-4ae3-9856-e8311bf5fddd)

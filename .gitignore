@@ -41,6 +41,7 @@ env.bak/
 venv.bak/
 .env
 backend/venv
+backend/.venv
 
 backend/.python-version
 backend/dataset
