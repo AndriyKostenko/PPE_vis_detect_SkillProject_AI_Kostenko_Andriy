@@ -30,3 +30,20 @@ dependencies = [
     "ultralytics-thop>=2.0.18",
     "uvicorn>=0.38.0",
 ]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.10",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+select = ["E", "F", "I", "B"]
+ignore = ["E501"]
+
+[tool.ruff.lint]
+fixable = ["ALL"]
+
+[tool.ruff.format]
+quote-style = "double"
