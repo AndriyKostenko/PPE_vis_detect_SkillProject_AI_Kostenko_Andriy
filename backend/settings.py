@@ -15,26 +15,26 @@ class Settings(BaseSettings):
         - MODEL IMG SIZE: Dimension to which input images are resized
         - DATASET PATH: Path to the dataset configuration file
     """
-    model_config = SettingsConfigDict(env_file=str(_PROJECT_ROOT / ".env"), 
+    model_config = SettingsConfigDict(env_file=str(_PROJECT_ROOT / ".env"),
                                       env_file_encoding="utf-8",
                                       case_sensitive=True,
                                       extra="ignore")
-    
+
     # Setting the default params for the application in case user forgets to set them in .env file
     APP_NAME: str = "PPE_Vision_Detector_APP"
     APP_VERSION: str = "0.0.1"
     APP_HOST: str = "localhost"
     APP_PORT: int = 8000
-    CORS_ALLOWED_ORIGINS: list[str] = ["http://localhost:3000"]
+    CORS_ALLOWED_ORIGINS: list[str] = ["http://localhost:3000", "https://ppe-vision-detection-frontend-719002442049.northamerica-northeast2.run.app"]
     CORS_ALLOW_CREDENTIALS: bool = True
     CORS_ALLOWED_METHODS: list[str] = ["POST", "GET", "OPTIONS"]
     CORS_ALLOWED_HEADERS: list[str] = ["*"]
-    
+
     # Directories for storing uploads and results
     IMAGE_UPLOAD_DIR: str = "uploads"
     INFERENCE_RESULTS_DIR: str = "inference_results"
     PDF_REPORTS_DIR: str = "pdf_reports"
-    
+
     #YOLO Model settings
     MODEL_NAME_AND_SIZE: str = "yolo11n.pt"  # setting the minimum default model
     TRAINING_DATASET_PATH: str = "dataset/data.yaml"  # dataset config YAML (paths, class names, nc)
@@ -43,23 +43,23 @@ class Settings(BaseSettings):
     NUMBER_OF_EPOCHS: int = 10  # let it be only 10 for testing purpose and saving the users GPU/CPU
     CONFIDENCE_THRESHOLD: float = 0.25  # default confidence threshold for inference
     IOU_THRESHOLD: float = 0.45  # default IoU threshold for NMS during inference
-    
+
     @property
     def BASE_DIR(self) -> Path:
         """Get the backend base directory."""
         return _BACKEND_DIR
-    
+
     @property
     def DATASET_PATH(self) -> Path:
         """Get the dataset path."""
         return _BACKEND_DIR / Path(self.TRAINING_DATASET_PATH).parent
-    
+
     @property
     def DATASET_YAML_PATH(self) -> Path:
         """Get the dataset YAML file path."""
-        return _BACKEND_DIR / self.TRAINING_DATASET_PATH    
-    
-    
+        return _BACKEND_DIR / self.TRAINING_DATASET_PATH
+
+
 @lru_cache()
 def get_settings() -> Settings:
     """Get the application settings."""
