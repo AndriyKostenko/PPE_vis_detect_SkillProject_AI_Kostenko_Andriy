@@ -49,9 +49,8 @@ export default function Home() {
         formData.append("file", selectedFile);
 
       try {
-            // Corrected code for fetching from the API with dynamic base URL for Google Cloud Run deployment
-            const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
-            const response = await fetch(`${API_BASE_URL}/api/v1/detect`, {
+            // Google cloud run endpoint
+            const response = await fetch(`https://ppe-vis-detect-skillproject-ai-kostenko-andriy-719002442049.northamerica-northeast2.run.app/api/v1/detect`, {
               method: "POST",
               body: formData,
             });
