@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, timezone
 from typing import Optional, List, Literal
 
 from pydantic import BaseModel, ConfigDict, EmailStr, PositiveInt, field_validator
@@ -45,7 +45,7 @@ class DetectionSummarySchema(BaseModel):
     
 class DetectionResponseSchema(BaseModel):
     image_id: str = Field(..., description="Unique identifier for the image")
-    timestamp: datetime = Field(default_factory=datetime.now, description="Timestamp of when the detection was made")
+    timestamp: datetime = Field(default_factory=lambda: datetime.now(timezone.utc), description="Timestamp of when the detection was made")
     detections: list[DetectionSchema] = Field(..., description="List of detections")
     summary: DetectionSummarySchema = Field(..., description="Summary of detections")
     annotated_image: str 

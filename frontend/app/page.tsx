@@ -245,7 +245,7 @@ export default function Home() {
                             </div>
                             <div className="mt-4 flex flex-wrap gap-8 text-sm text-neutral-800">
                             <div>
-                                <span className="font-semibold">Compliants:</span> {responseData.summary.helmet_count}
+                                <span className="font-semibold">Сompliance:</span> {responseData.summary.helmet_count}
                             </div>
                             <div>
                                 <span className="font-semibold">Violations:</span> {responseData.summary.no_helmet_count}

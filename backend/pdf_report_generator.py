@@ -72,7 +72,7 @@ class PDFReportGenerator:
             y_position -= 20
             c.drawString(30, y_position, f"Violations: {violations}")
             y_position -= 20
-            c.drawString(30, y_position, f"Complaints: {complaints}")
+            c.drawString(30, y_position, f"Сompliance: {complaints}")
             y_position -= 30  # Space before detections list
             line_height = 20
             bottom_margin = 60
