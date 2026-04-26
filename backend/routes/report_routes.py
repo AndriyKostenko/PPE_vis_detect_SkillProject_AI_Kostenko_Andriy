@@ -1,4 +1,4 @@
-from fastapi import APIRouter, UploadFile, File, HTTPException, status
+from fastapi import APIRouter, UploadFile, File, HTTPException, status, Request
 
 from schemas.report_shcemas import DetectionRequestSchema
 from pdf_report_generator import report_generator
@@ -15,14 +15,16 @@ report_router = APIRouter(tags=["PDF Report endpoints"])
                      response_description="PDF report generation status",
                      status_code=status.HTTP_201_CREATED,
                      response_model=ReportResponseSchema)
-async def generate_the_report(data: DetectionRequestSchema):  
+async def generate_the_report(request: Request, data: DetectionRequestSchema):
     try:
+        base_url = str(request.base_url)
         pdf_path = report_generator.generate_report(
             image_id=data.image_id,
             timestamp=data.timestamp,
             summary=data.summary,
             detections=data.detections,
-            annotated_image_base64=data.annotated_image
+            annotated_image_base64=data.annotated_image,
+            base_url=base_url
         )
         return ReportResponseSchema(
             status="PDF report generated successfully",
@@ -30,4 +32,3 @@ async def generate_the_report(data: DetectionRequestSchema):
         )
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Error generating PDF report: {e}")
-        

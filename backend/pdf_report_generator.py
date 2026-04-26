@@ -23,11 +23,11 @@ class PDFReportGenerator:
         self.logger = logger
         self.output_path = Path(self.settings.PDF_REPORTS_DIR)
         self.output_path.mkdir(parents=True, exist_ok=True)
-        
+
     @staticmethod
     def _generate_unique_filename() -> str:
         return f"report_{uuid4().hex}.pdf"
-    
+
     def _draw_wrapped_text(self, c, text, x, y, max_width, font_name="Helvetica", font_size=12, line_height=20):
         words = text.split()
         line = ""
@@ -43,19 +43,19 @@ class PDFReportGenerator:
             c.drawString(x, y, line)
             y -= line_height
         return y
-        
-    def generate_report(self, detections: list, annotated_image_base64: str, summary, image_id: str, timestamp: datetime) -> Path:
-        try:  
+
+    def generate_report(self, detections: list, annotated_image_base64: str, summary, image_id: str, timestamp: datetime, base_url: str = "http://localhost:8000") -> str:
+        try:
             filename = self._generate_unique_filename()
             output_path = self.output_path / filename
             width, height = letter
-            
+
             total_detections = len(detections)
             image_id = image_id
             timestamp_formatted = datetime.strftime(timestamp, "%Y-%m-%d %H:%M:%S")
             violations = summary.no_helmet_count
             complaints = summary.helmet_count
-            
+
             c = canvas.Canvas(str(output_path), pagesize=letter)
             c.setFont("Helvetica", 12)
             c.drawString(30, height - 30, "PPE Safety Incident Report")
@@ -106,19 +106,18 @@ class PDFReportGenerator:
 
             c.save()
             self.logger.info(f"PDF report generated at: {output_path}")
-            
-            pdf_url = f"http://localhost:8000/pdf_reports/{filename}"
+
+            pdf_url = f"{base_url.rstrip('/')}/pdf_reports/{filename}"
             self.logger.info(f"PDF report accessible at: {pdf_url}")
             return pdf_url
         except Exception as e:
             self.logger.error(f"Failed to generate PDF report: {e}")
             raise
-        
-    
+
+
 report_generator = PDFReportGenerator(settings=settings, logger=logger)
-    
+
 
 if __name__ == "__main__":
     pass
     #report_generator = PDFReportGenerator(settings=settings, logger=logger)
-    
