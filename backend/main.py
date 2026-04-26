@@ -1,6 +1,6 @@
 from datetime import datetime
 
-import uvicorn 
+import uvicorn
 from fastapi import FastAPI, Request, HTTPException
 from fastapi.responses import JSONResponse
 from pydantic import ValidationError
@@ -17,14 +17,14 @@ app = FastAPI(title="PPE Vision Detection App",
               version="0.0.1")
 
 
-@app.get("/health", tags=["Health Check"])  
+@app.get("/health", tags=["Health Check"])
 async def health_check():
     """
     A simple health check endpoint to verify that the service is running.
     """
     return JSONResponse(
         content={
-            "status": "ok", 
+            "status": "ok",
             "timestamp": datetime.now().isoformat(),
             "service": "ppe-vision-detection"
         },
@@ -37,7 +37,7 @@ def add_exception_handlers(app: FastAPI):
     """
     This function adds exception handlers to the FastAPI application.
     """
-   
+
     @app.exception_handler(ValidationError)
     async def validation_exception_handler(request: Request, exc: ValidationError):
         """Custom exception handler for Pydantic validation errors"""
@@ -50,7 +50,7 @@ def add_exception_handlers(app: FastAPI):
                 "path": request.url.path
             }
         )
-        
+
     # Custom Exception handlers for Pydantic validation errors in request and response
     @app.exception_handler(ResponseValidationError)
     async def validation_response_exception_handler(request: Request, exc: ResponseValidationError):
@@ -68,7 +68,7 @@ def add_exception_handlers(app: FastAPI):
     # Custom Exception handlers for Pydantic validation errors in request and response
     @app.exception_handler(RequestValidationError)
     async def validation_request_exception_handler(request: Request, exc: RequestValidationError):
-        """Custom exception handler for request validation errors""" 
+        """Custom exception handler for request validation errors"""
         return JSONResponse(
             status_code=422,
             content={
@@ -78,22 +78,34 @@ def add_exception_handlers(app: FastAPI):
                 "path": request.url.path
             }
         )
-        
-# adding exception handlers to the app      
-add_exception_handlers(app)
-        
 
-# CORS or "Cross-Origin Resource Sharing" is a mechanism that 
-# allows restricted resources on a web page to be requested from another domain 
+# adding exception handlers to the app
+add_exception_handlers(app)
+
+
+# CORS or "Cross-Origin Resource Sharing" is a mechanism that
+# allows restricted resources on a web page to be requested from another domain
 # outside the domain from which the first resource was served.
 # Since we will be running only locally, we will allow all origins.
+# app.add_middleware(
+#     CORSMiddleware,
+#     allow_origins=settings.CORS_ALLOWED_ORIGINS,
+#     allow_credentials=settings.CORS_ALLOW_CREDENTIALS,
+#     allow_methods=settings.CORS_ALLOWED_METHODS,
+#     allow_headers=settings.CORS_ALLOWED_HEADERS,
+# )
+#
+
+
+# Temporary test code
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ALLOWED_ORIGINS,
-    allow_credentials=settings.CORS_ALLOW_CREDENTIALS,
-    allow_methods=settings.CORS_ALLOWED_METHODS,
-    allow_headers=settings.CORS_ALLOWED_HEADERS,
+    allow_origins=["*"], # Allow everything for a quick test
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
+
 
 # including all the routers to the app
 app.include_router(detect_router, prefix="/api/v1")
