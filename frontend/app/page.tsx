@@ -48,16 +48,24 @@ export default function Home() {
         const formData = new FormData();
         formData.append("file", selectedFile);
 
-        try {
-            const response = await fetch("http://localhost:8000/api/v1/detect", {
-                method: "POST",
-                body: formData,
+      try {
+            // Corrected code for fetching from the API with dynamic base URL for Google Cloud Run deployment
+            const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+            const response = await fetch(`${API_BASE_URL}/api/v1/detect`, {
+              method: "POST",
+              body: formData,
             });
+
+
+            //const response = await fetch("http://localhost:8000/api/v1/detect", {
+            // method: "POST",
+            // body: formData,
+            // });
 
             if (!response.ok) {
                 const errorText = await response.text();
                 const shortError = errorText.length > 200 ? errorText.slice(0, 200) + "..." : errorText;
-                toast.error(`Upload failed: ${shortError}`);
+                toast.error(`Upload failed: Please upload the .jpg, .png with max size of 2 mb.`);
                 setLoading(false);
                 setResponseData(null);
                 return;
