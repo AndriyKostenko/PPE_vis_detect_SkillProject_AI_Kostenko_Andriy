@@ -38,4 +38,9 @@ COPY --from=builder /app/next.config.* ./
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# local
+# CMD ["npm", "start"]
+
+
+# Cloud Run - Ensure the Node server listens on the port Google assigns
+CMD ["sh", "-c", "HOSTNAME=0.0.0.0 node .next/standalone/server.js"]

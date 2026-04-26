@@ -51,6 +51,11 @@ backend/inference_results
 backend/__pycache__
 backend/logs
 backend/pdf_reports
+backend/.ruff_cache
+backend/.mypy_cache
+backend/.pytest_cache
+backend/.vscode/
+backend/.idea/
 
 
 # Source control Frontend
