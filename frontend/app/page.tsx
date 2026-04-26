@@ -95,8 +95,16 @@ export default function Home() {
         const generateReport = async () => {
             if (!responseData) return;
             setReportLoading(true);
-            try {
-                const response = await fetch("http://localhost:8000/api/v1/report", {
+          try {
+
+            // const response = await fetch("http://localhost:8000/api/v1/report", {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //     },
+            //     body: JSON.stringify(responseData),
+            // })
+            const response = await fetch("https://ppe-vis-detect-skillproject-ai-kostenko-andriy-719002442049.northamerica-northeast2.run.app/api/v1/report", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
