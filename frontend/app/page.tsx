@@ -41,7 +41,7 @@ export default function Home() {
             setSelectedFile(e.target.files[0]);
         }
     };
-
+    // handle file upload and response from the server
     const handleUpload = async () => {
         if (!selectedFile) return;
         setLoading(true);
@@ -122,7 +122,7 @@ export default function Home() {
                 toast.error("An error occurred while generating the report.");
                 console.error("Error generating report:", error);
             } finally {
-                setReportLoading(false);    
+                setReportLoading(false);
         }
         };
 
@@ -130,7 +130,7 @@ export default function Home() {
             generateReport();
         }
     }, [responseData]);
-    
+
 
     return (
         <div className="flex h-screen bg-neutral-100">
@@ -306,4 +306,3 @@ export default function Home() {
         </div>
     );
 }
-
